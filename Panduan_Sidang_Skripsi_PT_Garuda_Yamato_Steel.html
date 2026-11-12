@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Tanya Jawab Sidang Skripsi - Inventaris Sparepart PT Garuda Yamato Steel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f5132;
+            --primary-dark: #0a3622;
+            --primary-light: #d1e7dd;
+            --secondary: #475569;
+            --accent: #2563eb;
+            --accent-bg: #eff6ff;
+            --warning: #b45309;
+            --warning-bg: #fef3c7;
+            --danger: #b91c1c;
+            --danger-bg: #fee2e2;
+            --dark: #0f172a;
+            --light-bg: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #1e293b;
+            background-color: #f1f5f9;
+            line-height: 1.6;
+            font-size: 13.5px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Action Bar (Hanya tampil di layar browser) */
+        .no-print-bar {
+            background: #ffffff;
+            border-bottom: 2px solid #0f5132;
+            padding: 14px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-print {
+            background-color: #0f5132;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(15,81,50,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .btn-print:hover {
+            background-color: #0a3622;
+            transform: translateY(-1px);
+        }
+
+        /* Container Dokumen A4 */
+        .document-container {
+            max-width: 860px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 48px 56px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Header Dokumen */
+        .doc-header {
+            border-bottom: 3px double #cbd5e1;
+            padding-bottom: 24px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .doc-tag {
+            display: inline-block;
+            background: #e6f4ea;
+            color: #0f5132;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            border: 1px solid #badbcc;
+        }
+
+        .doc-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        .doc-subtitle {
+            font-size: 14px;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+            background: #f8fafc;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .meta-item {
+            font-size: 12px;
+        }
+
+        .meta-label {
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-val {
+            color: #0f172a;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        /* Category Section */
+        .category-block {
+            margin-bottom: 32px;
+            page-break-inside: avoid;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #0f5132;
+            margin-bottom: 18px;
+        }
+
+        .category-badge {
+            background: #0f5132;
+            color: white;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .category-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+        }
+
+        /* Q&A Cards */
+        .qa-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0f5132;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+
+        .qa-card.critical {
+            border-left-color: #dc2626;
+            background: #fffafa;
+        }
+
+        .qa-question {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .q-prefix {
+            background: #0f5132;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .critical .q-prefix {
+            background: #dc2626;
+        }
+
+        .qa-answer {
+            background: #f8fafc;
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-size: 13px;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 8px;
+        }
+
+        .critical .qa-answer {
+            background: #ffffff;
+            border-color: #fed7d7;
+        }
+
+        .ans-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 800;
+            color: #0f5132;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .critical .ans-label {
+            color: #dc2626;
+        }
+
+        .qa-note {
+            font-size: 11.5px;
+            color: #64748b;
+            margin-top: 6px;
+            padding-left: 6px;
+            font-style: italic;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', Consolas, monospace;
+            background: #e2e8f0;
+            color: #0f172a;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background: linear-gradient(135deg, #0f5132 0%, #1e40af 100%);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin-top: 32px;
+            page-break-inside: avoid;
+        }
+
+        .tips-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tips-list {
+            margin-left: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .tips-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .doc-footer {
+            margin-top: 40px;
+            padding-top: 18px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        /* PRINT STYLING */
+        @media print {
+            body {
+                background: #ffffff;
+                color: #000000;
+                font-size: 12px;
+            }
+
+            .no-print-bar {
+                display: none !important;
+            }
+
+            .document-container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                border: none;
+                box-shadow: none;
+            }
+
+            .doc-header {
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
+
+            .doc-title {
+                font-size: 20px;
+            }
+
+            .qa-card {
+                break-inside: avoid;
+                margin-bottom: 14px;
+                padding: 14px 16px;
+            }
+
+            .qa-answer {
+                background: #fdfdfd !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .tips-box {
+                background: #0f5132 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                size: A4;
+                margin: 1.6cm 1.4cm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bar Navigasi Layar (Akan disembunyikan saat dicetak) -->
+    <div class="no-print-bar">
+        <div>
+            <strong style="color: #0f5132; font-size: 15px;">Dokumen Siap Cetak / Export PDF</strong>
+            <p style="color: #64748b; font-size: 12px; margin: 0;">Tekan tombol di samping atau gunakan shortcut <strong>Ctrl + P</strong></p>
+        </div>
+        <button class="btn-print" onclick="window.print()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Cetak / Simpan Sebagai PDF
+        </button>
+    </div>
+
+    <!-- Halaman Dokumen A4 -->
+    <div class="document-container">
+        
+        <!-- Header Dokumen -->
+        <header class="doc-header">
+            <span class="doc-tag">Lembar Persiapan Ujian Sidang / Komprehensif Skripsi</span>
+            <h1 class="doc-title">Panduan Tanya Jawab Sidang Skripsi</h1>
+            <p class="doc-subtitle">Sistem Inventaris Sparepart Mechanic Engineer — PT Garuda Yamato Steel</p>
+            
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">Framework / Tech Stack</div>
+                    <div class="meta-val">Laravel 13 & Bootstrap 5.3</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Basis Data</div>
+                    <div class="meta-val">MySQL / MariaDB</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Objek Studi Kasus</div>
+                    <div class="meta-val">PT Garuda Yamato Steel</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Kategori 1: Masalah & Studi Kasus Bisnis -->
+        <section class="category-block">
+            <div class="category-header">
+                <span class="category-badge">BAGIAN 1</span>
+                <h2 class="category-title">Studi Kasus & Latar Belakang (Domain Pabrik Baja)</h2>
+            </div>
+
+            <!-- Q1 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q1</span>
+                    <span>Kenapa Anda membuat sistem ini dan apa masalah utama yang diselesaikan di PT Garuda Yamato Steel?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Sistem ini dirancang khusus untuk tim Mechanic Engineer di PT Garuda Yamato Steel. Masalah utamanya adalah pencatatan manual suku cadang mekanik yang rentan tercecer atau lambat ditemukan saat terjadi breakdown mesin pabrik. Sistem ini mempermudah pencatatan stok fisik aktual dan memetakan langsung posisi barang pada nomor rak serta lokasi gudangnya, sehingga waktu penanganan perawatan/perbaikan mesin (maintenance downtime) dapat dipangkas secara signifikan."
+                </div>
+                <div class="qa-note">💡 Kunci penilaian: Dosen ingin tahu apakah sistem memiliki dampak nyata terhadap efisiensi operasional pabrik.</div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q2</span>
+                    <span>Siapa pengguna utama dari sistem ini?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Pengguna utamanya terdiri dari dua pihak:
+                    <ol style="margin-left: 20px; margin-top: 5px;">
+                        <li><strong>Staf Gudang Mekanik (Storekeeper):</strong> Bertanggung jawab melakukan input registrasi sparepart baru, pembaruan stok fisik, dan penataan posisi rak.</li>
+                        <li><strong>Teknisi / Mekanik Maintenance:</strong> Memeriksa ketersediaan suku cadang dan mengetahui lokasi rak penyimpanan secara presisi saat butuh pergantian komponen mesin."</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 2: Arsitektur Sistem & MVC -->
+        <section class="category-block">
+            <div class="category-header">
+                <span class="category-badge">BAGIAN 2</span>
+                <h2 class="category-title">Arsitektur Laravel & Konsep MVC</h2>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q3</span>
+                    <span>Jelaskan bagaimana konsep MVC (Model-View-Controller) berjalan pada fitur Tambah Barang di web Anda!</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Alur MVC berjalan secara terpisah dan terstruktur:
+                    <ul style="margin-left: 18px; margin-top: 5px;">
+                        <li><strong>View (<code>create.blade.php</code>):</strong> Menyediakan antarmuka form input data barang dan pilihan rak untuk pengguna.</li>
+                        <li><strong>Controller (<code>BarangController@store</code>):</strong> Menerima data HTTP POST, melakukan validasi kelayakan data (nama, stok, id_rack), dan memproses penyimpanan.</li>
+                        <li><strong>Model (<code>Barang.php</code> & <code>Rack.php</code>):</strong> Bertugas berkomunikasi langsung dengan tabel database menggunakan Eloquent ORM untuk mengeksekusi perintah <code>INSERT</code>, lalu Controller mengalihkan (redirect) kembali ke View index dengan flash message sukses."</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q4</span>
+                    <span>Kenapa memilih framework Laravel dan bukan PHP Native atau framework lain?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Laravel menyediakan standar industri yang mempercepat pengembangan dan menjaga keamanan aplikasi:
+                    <ul style="margin-left: 18px; margin-top: 5px;">
+                        <li><strong>Keamanan Bawaan:</strong> Terlindungi secara default dari CSRF, SQL Injection (melalui parameter binding PDO), dan XSS sanitization pada Blade.</li>
+                        <li><strong>Eloquent ORM:</strong> Mempermudah manajemen relasi antar tabel tanpa perlu merangkai sintaks SQL mentah secara manual.</li>
+                        <li><strong>Modular & Skalabel:</strong> Memudahkan integrasi fitur lanjutan di masa depan seperti autentikasi, export laporan, dan RESTful API."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 3: Basis Data & Relasi -->
+        <section class="category-block">
+            <div class="category-header">
+                <span class="category-badge">BAGIAN 3</span>
+                <h2 class="category-title">Basis Data & Relasi Entitas</h2>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q5</span>
+                    <span>Bagaimana hubungan/relasi antara tabel <code>barang</code> dan tabel <code>rack</code>?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Hubungannya adalah <strong>One-to-Many</strong> (dari sisi barang: <strong>Many-to-One</strong>). Satu rak penyimpanan dapat menampung banyak item barang, sedangkan satu barang hanya dialokasikan pada satu rak tertentu. Di model <code>Barang</code>, relasi ini didefinisikan dengan metode <code>$this-&gt;belongsTo(Rack::class, 'id_rack', 'id_rack')</code>, di mana kolom <code>id_rack</code> bertindak sebagai Foreign Key."
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q6</span>
+                    <span>Kenapa Anda membuat tabel <code>rack</code> terpisah dan tidak digabungkan langsung di tabel <code>barang</code>?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Untuk menerapkan kaidah <strong>Normalisasi Database (2NF & 3NF)</strong> guna mencegah terjadinya anomali data dan redundansi. Jika nama rak dan deskripsi lokasi disimpan langsung di tabel barang, informasi lokasi yang sama akan tertulis berulang kali pada ribuan baris sparepart. Dengan tabel terpisah, pembaruan tata letak rak cukup diubah pada satu baris di tabel <code>rack</code>."
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 4: Pertanyaan Kritis / Code Review Dosen -->
+        <section class="category-block">
+            <div class="category-header">
+                <span class="category-badge" style="background: #dc2626;">BAGIAN 4</span>
+                <h2 class="category-title" style="color: #b91c1c;">Pertanyaan Kritis & Sorotan Kode (Code Review)</h2>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qa-card critical">
+                <div class="qa-question">
+                    <span class="q-prefix">Q7</span>
+                    <span>Di BarangController index, Anda menulis <code>Barang::latest()-&gt;get()</code>. Apakah ada potensi masalah performa saat menampilkan nama rak?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Solutif & Cerdas:</span>
+                    "Benar Pak/Bu, pemanggilan <code>$barang-&gt;rack-&gt;nama_rack</code> di dalam perulangan view berpotensi menimbulkan <strong>N+1 Query Problem</strong>. Artinya, sistem menjalankan 1 query awal untuk mengambil semua barang, lalu mengeksekusi N query terpisah untuk mengambil data rak setiap baris barang. Solusi optimasi yang tepat adalah menerapkan <strong>Eager Loading</strong> dengan mengubah kodenya menjadi: <br><code>$barangs = Barang::with('rack')-&gt;latest()-&gt;get();</code><br> Dengan demikian, seluruh data barang dan rak berelasi dimuat sekaligus hanya dalam 2 query SQL yang sangat efisien."
+                </div>
+                <div class="qa-note">⭐ Poin Emas: Jika Anda menyebut istilah <em>N+1 Query</em> dan <em>Eager Loading</em>, dosen akan langsung tahu Anda menguasai backend secara mendalam.</div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qa-card critical">
+                <div class="qa-question">
+                    <span class="q-prefix">Q8</span>
+                    <span>Kenapa method <code>edit()</code> dan <code>update()</code> di <code>BarangController</code> belum diimplementasikan?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Taktis:</span>
+                    "Fokus pada tahap pertama pengembangan ini adalah memvalidasi modul penerimaan barang baru (Create), pemantauan ketersediaan stok fisik & pemetaan rak (Read), serta pembersihan data invalid (Delete). Modul pengubahan data (Update) beserta pencatatan riwayat kartu stok masuk-keluar (stock mutation log) merupakan rencana pengembangan pada modul fase kedua berikutnya."
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qa-card critical">
+                <div class="qa-question">
+                    <span class="q-prefix">Q9</span>
+                    <span>Kenapa rute pada <code>routes/web.php</code> belum memiliki autentikasi (Login)?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Taktis:</span>
+                    "Pada tahap pengujian fungsionalitas lokal (development), rute dibuka untuk mempercepat uji coba alur kerja data. Namun untuk tahap deployment di lingkungan pabrik, sistem telah disiapkan untuk diintegrasikan dengan middleware <code>auth</code> Laravel serta pemisahan hak akses bertingkat (Role-Based Access Control) antara Admin Logistik dan Teknisi Lapangan."
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 5: Keamanan & Validasi -->
+        <section class="category-block">
+            <div class="category-header">
+                <span class="category-badge">BAGIAN 5</span>
+                <h2 class="category-title">Keamanan & Integritas Data</h2>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q10</span>
+                    <span>Apa fungsi dari tag <code>@csrf</code> di formulir tambah barang?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Fungsinya untuk menangkal serangan <strong>Cross-Site Request Forgery (CSRF)</strong>. Directive <code>@csrf</code> menyisipkan input tersembunyi berisi token acak terenkripsi yang unik per sesi pengguna. Server Laravel akan memverifikasi kecocokan token ini untuk memastikan permintaan POST benar-benar berasal dari interaksi formulir sah pada sistem kita, bukan manipulasi skrip dari situs luar."
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q11</span>
+                    <span>Mengapa aksi hapus barang menggunakan form dengan <code>@method('DELETE')</code> dan bukan link <code>&lt;a&gt;</code> biasa?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Ada dua alasan mendasar:
+                    <ol style="margin-left: 20px; margin-top: 5px;">
+                        <li><strong>Standar HTTP RESTful:</strong> Operasi penghapusan data harus menggunakan kata kerja HTTP <code>DELETE</code>. Link <code>&lt;a&gt;</code> biasa menggunakan method <code>GET</code> yang berbahaya karena dapat terpicu secara tidak sengaja oleh bot web crawler atau prefetching browser.</li>
+                        <li><strong>Method Spoofing:</strong> Karena form standar HTML hanya mendukung GET dan POST, directive <code>@method('DELETE')</code> memberitahu Laravel untuk memperlakukan request tersebut sebagai HTTP DELETE yang sah dan terlindungi CSRF."</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q12</span>
+                    <span>Bagaimana validasi data dijalankan saat input barang?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Validasi dieksekusi di method <code>store()</code> dengan fungsi <code>$request-&gt;validate()</code>. Ketentuannya:
+                    <ul style="margin-left: 18px; margin-top: 5px;">
+                        <li><code>nama_barang</code>: Wajib diisi, bertipe teks, maksimal 255 karakter.</li>
+                        <li><code>stock</code>: Wajib diisi dan harus berupa angka bilangan bulat (integer &ge; 0).</li>
+                        <li><code>id_rack</code>: Wajib diisi dan harus valid terdaftar pada tabel rak (<code>exists:rack,id_rack</code>).</li>
+                    </ul>
+                    Jika aturan dilanggar, Laravel secara otomatis membatalkan transaksi dan mengembalikan input beserta pesan error ke form antarmuka."
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 6: Fitur & User Experience (UX) -->
+        <section class="category-block">
+            <div class="category-header">
+                <span class="category-badge">BAGIAN 6</span>
+                <h2 class="category-title">Fitur Antarmuka & User Experience (UX)</h2>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q13</span>
+                    <span>Bagaimana fitur pencarian barang pada tabel bekerja? Apakah melakukan query ke database lagi?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Pencarian pada tabel bekerja secara <strong>Client-Side</strong> menggunakan JavaScript DOM Event Listener (<code>input</code> event). Skrip menyaring langsung teks pada setiap baris tabel yang telah dimuat di browser. Pendekatan ini dipilih karena memberikan pengalaman pencarian instan (real-time tanpa jeda loading halaman) dan meringankan beban query server."
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qa-card">
+                <div class="qa-question">
+                    <span class="q-prefix">Q14</span>
+                    <span>Apa maksud dari 4 kartu indikator (KPI) di atas tabel barang?</span>
+                </div>
+                <div class="qa-answer">
+                    <span class="ans-label">Jawaban Ringkas & Tepat:</span>
+                    "Kartu tersebut berfungsi sebagai ringkasan eksekutif inventaris mekanik:
+                    <ul style="margin-left: 18px; margin-top: 5px;">
+                        <li><strong>Total Jenis Barang:</strong> Jumlah varian sparepart yang terdaftar dalam katalog.</li>
+                        <li><strong>Total Unit Fisik:</strong> Akumulasi jumlah kuantitas stok seluruh barang di gudang.</li>
+                        <li><strong>Perlu Perhatian:</strong> Menghitung otomatis barang yang stoknya kritis (&le; 5 unit) agar tim mekanik segera membuat permintaan pengadaan (purchase requisition).</li>
+                        <li><strong>Rak Terpakai:</strong> Jumlah titik rak aktif yang sedang terisi sparepart."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kotak Tips Sukses Sidang -->
+        <div class="tips-box">
+            <div class="tips-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                5 Aturan Emas Menjawab Dosen Saat Sidang Skripsi
+            </div>
+            <ol class="tips-list">
+                <li><strong>Jangan Pernah Mendebat Dosen:</strong> Apabila dosen menemukan celah kode (misal: tombol Tambah Rak masih dummy atau belum ada fungsi Edit), responlah dengan: <em>"Terima kasih atas masukannya Pak/Bu, hal tersebut menjadi poin evaluasi berharga yang akan saya tuntaskan pada revisi pengembangan berikutnya."</em></li>
+                <li><strong>Kuasai Alur Data Lengkap:</strong> Pahami perjalanan data mulai dari Form Blade ➔ Rute Web ➔ Controller ➔ Model Eloquent ➔ Database MySQL.</li>
+                <li><strong>Gunakan Istilah Teknis yang Tepat:</strong> Sebutkan istilah standar seperti <em>Normalisasi Database, Eloquent ORM, CSRF Token, Method Spoofing, Eager Loading, dan Client-Side Filtering</em>.</li>
+                <li><strong>Jawab Intinya Terlebih Dahulu:</strong> Berikan jawaban langsung 'to-the-point', baru kemudian lengkapi dengan alasan teknisnya secara singkat dan teratur.</li>
+                <li><strong>Tunjukkan Rasa Percaya Diri:</strong> Ingat bahwa Anda adalah orang yang membangun aplikasi ini dan paling tahu detail fitur di dalamnya.</li>
+            </ol>
+        </div>
+
+        <footer class="doc-footer">
+            Dokumen Persiapan Sidang Skripsi &bull; Sistem Inventaris Sparepart Mechanic PT Garuda Yamato Steel &bull; Dicetak Otomatis
+        </footer>
+
+    </div>
+
+</body>
+</html>
